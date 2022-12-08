@@ -1,0 +1,11 @@
+{
+  "name": "number-of-words",
+  "version": "1.0.0",
+  "description": "Task 1: Number of words in a given string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammed Alhosani",
+  "license": "ISC"
+}
