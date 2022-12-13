@@ -25,17 +25,17 @@ const server = http.createServer((req, res) => {
             // split() returns an array of all words, length = # of words
             // /\s+/ is regex that finds words regardless of # of spaces
             const wordArray = postedData.text.split(/\s+/);
-
-            // statement to catch the special case of having only spaces
-            if(wordArray[0] === "" && wordArray [1] === ""){
-                res.writeHead(200, {'Content-type': 'application/json'});
-                res.end('{"count": 0}');
-            return
+            let count = wordArray.length;
+            // statements to catch the special case of having spaces before and after first and last words respectively
+            if(wordArray[count-1] === ""){
+                count = count - 1;
             }
-
+            if(wordArray[0] === ""){
+                count = count - 1;
+            }
             // Returning the result after all checks
             res.writeHead(200, {'Content-type': 'application/json'});
-            res.end(`{"count": ${wordArray.length}}`);
+            res.end(`{"count": ${count}}`);
         });
     }
     else{ // To catch bad requests

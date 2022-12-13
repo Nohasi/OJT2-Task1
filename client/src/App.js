@@ -2,15 +2,14 @@ import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 import { DisplayBoard } from './components/DisplayBoard';
-import EnterWords from './components/EnterWords';
-import CountWords from './services/CountWords';
 import { Component, useState } from 'react';
 
 function App() {
-
+  // Setting states
   const [text, setText] = useState("");
   let [wordCount, setWordCount] = useState(0);
 
+  // Function that will connect to the API server
   let countWords = async (data) => {
     data.preventDefault();
     try {
@@ -22,18 +21,19 @@ function App() {
               text: text,
             })
         });
-        //return await response.json;
+        // waits for API server to return a response;
         let resJson = await response.json();
         if(response.status === 200){
+          // Reseting text box for use again, and updating word count display
           setText("");
           setWordCount(resJson.count);
           DisplayBoard(wordCount);
         } else{
-          console.log("some wacko stuff happened");
+          console.log("error: Parameter text is missing");
         }
     }
     catch(error){
-        return "Error";
+        return "error: could not connect to API server";
     }
   }
 

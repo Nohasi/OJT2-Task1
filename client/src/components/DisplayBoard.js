@@ -1,5 +1,4 @@
 import React from "react";
-import CountWords from "../services/CountWords";
 
 export const DisplayBoard = ({countWords}) => {
     const headerStyle = {
