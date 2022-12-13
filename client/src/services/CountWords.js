@@ -1,5 +1,6 @@
-export async function countWords(data){
+async function CountWords(data){
     try {
+        console.log(data);
         const response = await fetch('', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
@@ -11,3 +12,5 @@ export async function countWords(data){
         return "Error";
     }
 }
+
+export default CountWords;

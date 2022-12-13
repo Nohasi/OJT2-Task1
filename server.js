@@ -2,6 +2,7 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
     if(req.method === 'POST'){
+        console.log("Incoming POST Request");
         let body = "";
         req.on('data', chunk => {
             body += chunk;
@@ -44,5 +45,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3001, '127.0.0.1', () => {
-    console.log('Listening to requests on port 3000');
+    console.log('Listening to requests on port 3001');
 });

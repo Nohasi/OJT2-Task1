@@ -1,4 +1,5 @@
 import React from "react";
+import CountWords from "../services/CountWords";
 
 export const DisplayBoard = ({countWords}) => {
     const headerStyle = {
@@ -10,13 +11,10 @@ export const DisplayBoard = ({countWords}) => {
     }
 
     return( 
-        <div style={{backgroundColor: 'green'}} className="display-board">
+        <div style={{backgroundColor: 'teal'}} className="display-board">
             <h4 style={{color: 'white'}}>Number of words:</h4>
             <div className="number">
-                testing display board
-            </div>
-            <div className="btn">
-                <button type="button" onClick={(e) => countWords()} className="btn btn-warning">Count Words</button>
+                {countWords}
             </div>
         </div>
     )

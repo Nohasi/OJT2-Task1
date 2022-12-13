@@ -1,6 +1,7 @@
 import React from "react";
+import CountWords from "../services/CountWords";
 
-const EnterWords = (onChangeForm, countWords) => {
+const EnterWords = (onChangeForm, text) => {
 
     return(
         <div className="row">
@@ -9,11 +10,11 @@ const EnterWords = (onChangeForm, countWords) => {
                 <form>
                     <div className="row">
                         <div className="form-group col-md-6">
-                            <label htmlFor="exampleInputEmail">Sentence</label>
-                            <input type="text" onChange={(e) => onChangeForm(e)} className="form-control" name="sentence" id="firstname" aria-describedby="emailHelp" placeholder="Sentence" />
+                            <label htmlFor="exampleInputEmail">Sentence </label>
+                            <input type="text" className="form-control" name="text" id="text" aria-describedby="emailHelp" placeholder="Text" />
                         </div>
                     </div>
-                    <button type="button" onClick={(e) => countWords()} className="btn btn-danger">Count</button>
+                    <button type="submit">Count</button>
                 </form>
             </div>
         </div>
